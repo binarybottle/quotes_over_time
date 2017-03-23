@@ -43,9 +43,9 @@ Behind the scenes:
 
 <A HREF="javascript:popUpFull('http://www.alertnet.org')">Reuters Alertnet</a>
 
-with custom code written in 
+with 
 
-<A HREF="javascript:popUpFull('http://www.python.org')">Python</a>
+<A HREF="javascript:popUpFull('https://github.com/binarybottle/quotes_over_time')">custom code</a> written in Python.
 
 </ul>
 <ul>
