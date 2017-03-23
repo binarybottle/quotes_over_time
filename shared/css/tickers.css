@@ -1,0 +1,18 @@
+<style type="text/css">
+
+//#domticker{
+//}
+
+//#domticker div{ /*IE6 bug fix when text is bold and fade effect (alpha filter) is enabled. Style inner DIV with same color as outer DIV*/
+//}
+
+//#domticker a{
+//}
+
+.someclass{ //class to apply to your scroller(s) if desired
+width: 200px;
+height: 100px;
+padding: 5px;
+}
+
+</style>

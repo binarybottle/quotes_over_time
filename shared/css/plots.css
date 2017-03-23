@@ -1,0 +1,48 @@
+
+.plot_nav {
+        position: absolute;
+        top:  100px;
+        left: 125px;
+}
+.plot_main {
+        position: absolute;
+        top:  188px;
+        left: 125px;
+}
+.plot_ticks_nav {
+        position: absolute;
+        top:  151px;
+        left: 156px;
+        width: 1000px;
+}
+.plot_ticks_main {
+        position: absolute;
+        top:  279px;
+        left: 156px;
+        width: 1000px;
+}
+
+.date_start_nav {
+        position: absolute;
+        top: 176px;
+        left: 174px;
+        font-size: 80%;
+}
+.date_end_nav {
+        position: absolute;
+        top: 176px;
+        left: 845px;
+        font-size: 80%;
+}
+.date_days_nav {
+        position: absolute;
+        top: 176px;
+        left: 510px;
+        font-size: 80%;
+}
+.date_days_main {
+        position: absolute;
+        top: 308px;
+        left: 510px;
+        font-size: 80%;
+}

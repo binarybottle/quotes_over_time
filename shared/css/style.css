@@ -1,0 +1,87 @@
+body {
+        background-color: #EEEED1; //FFFCCF; //EEEED1; //#EEE8AA; //D8D8BF;
+        font-family: Arial, Verdana, Times New Roman, Helvetica, sans-serif;
+        font-size: 100%;
+        color: #333366;
+}
+div.banner {
+    position:  relative;
+	left:   40px;
+	top:    25px;
+}
+#logoQT {
+	    position:  absolute;
+        left:         10px;
+        top:          20px;
+        border:           0;
+        height:        50px;
+        width:         51px;
+}
+#logo {
+	    position:  absolute;
+        left:         790px;
+        top:           2px;
+        border:           0;
+        height:        19px;
+        width:        120px;
+}
+#about {
+        position:  relative;
+        left:         300px;
+        top:            0px;
+        border:           0;
+        font-size:      80%;
+}
+.title {
+        font-family: Arial, Verdana, Times New Roman, Helvetica, sans-serif;
+        font-size: 120%;
+        position: relative;
+        top: 0px;
+        left: 20px;
+}
+.subtitle {
+        font-family: Arial, Verdana, Times New Roman, Helvetica, sans-serif;
+        font-size: 85%;
+        position: relative;
+        top: 0px;
+        left: 20px;
+}
+div.main {
+	position: absolute;
+	left:   0px;
+    top:    0px;
+    width:  800px;
+}
+div.about {
+	position:  relative;
+	left:   20px;
+    top:    55px;
+    width:  800px;
+}
+.textblocks {
+        font-family: Georgia, Times New Roman, Helvetica, sans-serif;
+        font-size: 90%;
+        color: #333366;
+}
+.topic{
+        font-family: Arial, Georgia, Times New Roman, Helvetica, sans-serif;
+        font-size: 90%;
+        //background-color: #EEEED1;
+        position: absolute;
+        top: 50px;
+        left: 150px;
+}
+.credits {
+	font-size: 80%;
+}
+div.footer {
+	position:  absolute;
+	left:      30px;
+	bottom:    40px;
+	font-size: 70%;
+}
+
+
+
+
+

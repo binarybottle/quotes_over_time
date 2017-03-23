@@ -1,0 +1,57 @@
+
+.topic_form {
+        position:  absolute;
+        left:      400px;
+        top:       15px;
+        background-color: #EEEED1;
+        font-size: 90%;
+}
+.topic_form_select {
+        position:  relative;
+        left:      5px;
+        top:       17px;
+        background-color: #EEEED1;
+        font-size: 90%;
+}
+.topic_button {
+        position:  relative;
+        left:      0px;
+        top:       17px;
+        background-color: #EEEED1;
+        font-size: 80%;
+}
+
+.range_form {
+        position:  absolute;
+        left:      156px;
+        top:       306px;
+}
+.start_time_form {
+        position:  absolute;
+        top:       0px;
+        left:      0px;
+        background-color: #EEEED1;
+        font-size: 80%;
+}
+.stop_time_form {
+        position:  absolute;
+        top:       0px;
+        left:      673px;
+        background-color: #EEEED1;
+        font-size: 80%;
+}
+.range_button {
+        position:  relative;
+        left:      98px;
+        top:       0px;
+        background-color: #EEEED1;
+        font-size: 80%;
+}
+.range_button2 {
+        position:  relative;
+        left:      713px;
+        top:       0px;
+        background-color: #EEEED1;
+        font-size: 80%;
+}
+

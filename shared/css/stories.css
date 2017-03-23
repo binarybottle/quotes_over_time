@@ -1,0 +1,38 @@
+
+div.stories_section {
+    position:      absolute;
+	top:           100px;
+	left:          30px;
+}
+div.stories_body {
+    position:      relative;
+	left:   40px;
+	top:    30px;
+    width: 600px;
+}
+div.story_body {
+    position:      absolute;
+	left:   40px;
+	top:    50px;
+    width: 600px;
+}
+.headline {
+        font-size: 100%;
+        font-style: bold;
+}
+.date {
+        font-size: 90%;
+        text-align: right;
+}
+.author {
+        font-size: 90%;
+}
+.story { 
+        font-size: 90%;
+}
+.source {
+        font-size: 80%;
+}
+.link {
+        font-size: 80%;
+}
