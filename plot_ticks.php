@@ -25,7 +25,7 @@
 //   construct, set, render, output
 //
 require_once('thirdparty/sparkline-php-0.2/lib/Sparkline_Bar_with_offset.php');
-include_once ("shared/db.php");
+include_once("../../db/qovert_db.php");
 
 // Retrieve data from database
    $person_index[0] = 6;
@@ -37,9 +37,9 @@ include_once ("shared/db.php");
 
    $SQL  = ' SELECT * FROM topics_view ';
    $SQL .= " WHERE topicID = $topic_num";
-   $result = @ mysql_query ($SQL)
+   $result = mysqli_query ($link,$SQL)
                or die ('Query ' . $SQL . ' failed: ' . mysql_error ());
-   $row = mysql_fetch_row($result);
+   $row = mysqli_fetch_row($result);
 
    $icount=0;
    $rowexplode = explode(',',$row[$iP]);

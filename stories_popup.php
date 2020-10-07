@@ -1,5 +1,5 @@
 <?php
-include_once("shared/db.php");
+include_once("../../db/qovert_db.php");
 include_once("shared/header.php");
 
 $first_timestamp = $_GET[first_timestamp];
@@ -29,14 +29,14 @@ $personID5=$_GET[personID5];
              WHERE topicID='.$topic_num.
            ' AND timestamp BETWEEN '.$time1.' AND '.$time2;
 
-   $result = @ mysql_query ($SQL)
+   $result = mysqli_query ($link,$SQL)
                or die ('Query ' . $SQL . ' failed: ' . mysql_error ());
 
    if ($result) {
 
       $abstract = '';
 
-      while($row = mysql_fetch_row($result)) {
+      while($row = mysqli_fetch_row($result)) {
 
       //---------------
       // Format stories
@@ -76,10 +76,10 @@ $personID5=$_GET[personID5];
                    OR quotes.personID=$personID5)";
 	  
 
-      $result_quote = @ mysql_query ($SQL)
+      $result_quote = mysqli_query ($link,$SQL)
                 or die ('Query ' . $SQL . ' failed: ' . mysql_error ());
 
-      while($row2 = mysql_fetch_row($result_quote)) {
+      while($row2 = mysqli_fetch_row($result_quote)) {
 
          if (strlen($row2[0])>0) {
 

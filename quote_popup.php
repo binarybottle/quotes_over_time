@@ -1,5 +1,5 @@
 <?php
-include_once("shared/db.php");
+include_once("../../db/qovert_db.php");
 include_once("shared/header.php");
 
 $storyID = $_GET[storyID];
@@ -14,9 +14,9 @@ $date    = $_GET[date];
              AND stories.storyID='.$storyID.'
              AND quoteID='.$quoteID;
 
-   $result = @ mysql_query ($SQL)
+   $result = mysqli_query ($SQL)
                or die ('Query ' . $SQL . ' failed: ' . mysql_error ());
-   $row = mysql_fetch_row($result);
+   $row = mysqli_fetch_row($result);
    $quote = str_replace("'","&apos;",$row[0]);
    $quote = str_replace("\n", "", $quote);
    $quote = trim(str_replace("\r", "", $quote));

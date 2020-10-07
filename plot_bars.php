@@ -2,7 +2,7 @@
 include_once ("thirdparty/jpgraph-2.1.4/src/jpgraph.php");
 include_once ("thirdparty/jpgraph-2.1.4/src/jpgraph_bar.php");
 include_once ("thirdparty/jpgraph-2.1.4/src/jpgraph_line.php");
-include_once ("shared/db.php");
+include_once("../../db/qovert_db.php");
 
            $topic_num=$_GET[topic_num];
 		   $start_day=$_GET[start_day];
@@ -27,9 +27,9 @@ $barwidth = 0.75;
 // Retrieve data from database
    $SQL  = ' SELECT * FROM topics_view ';
    $SQL .= " WHERE topicID = $topic_num";
-   $result = @ mysql_query ($SQL)
+   $result = mysqli_query ($link,$SQL)
                or die ('Query ' . $SQL . ' failed: ' . mysql_error ());
-   $row = mysql_fetch_row($result);
+   $row = mysqli_fetch_row($result);
 
 // Whole range:
    $icount=0;

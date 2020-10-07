@@ -1,5 +1,5 @@
 <?php
-include_once("../db/qovert_db.php");
+include_once("../../db/qovert_db.php");
 include_once("shared/header.php");
 include_once("shared/banner.html");
 //
@@ -45,7 +45,8 @@ include_once("shared/banner.html");
    }
 
    $grab_quotes        = 1;             // Grab quotes from database
-   $plot_stories       = 1;             // Tally number of stories per day for plot
+// BAR PLOTS BROKEN WITH PHP UPGRADE!
+   $plot_stories       = 0;             // Tally number of stories per day for plot
    $plot_people        = 0;             // Add lineplots above barplots for peoples' quotes
                                         // NOTE: heights not by #stories -- just for debugging
 //-------------
@@ -55,12 +56,7 @@ include_once("shared/banner.html");
    $topic_num_new = $_POST['topic_num_new'];
    if (empty($topic_num_new)) { 
       $sql = 'SELECT topic_num_new FROM temp';
-
-// PHP UPGRADE BREAKS THE FOLLOWING: 
-print('<br><br><br><br><br><br><br><br><br><br><br><br>PHP UPGRADE BREAKS THE FOLLOWING: mysqli_query'); 
       $result_stored = mysqli_query($link,$sql) or die (mysql_error());
-print('<br><br><br><br><br><br><br><br><br><br><br><br>AFTER mysqli_query'); 
-
       $topic_num_new = mysqli_fetch_row($result_stored);      
       $topic_num_new = $topic_num_new[0];
 // Store topic number
@@ -572,6 +568,12 @@ print('<br><br><br><br><br><br><br><br><br><br><br><br>AFTER mysqli_query');
       echo "<span class='date_days_nav'>- $numdays$days_str -</span>";
    // Add number of days: main
       echo "<span class='date_days_main'>- ".($stop_day-$start_day+1)."$days_zoom_str -</span>";
+
+   } else {
+      
+     echo '<div class="stories_section">';
+     echo '<font color="red">[NOTE: Unfortunately, changes in the PHP language since 2007 have broken interactive bar plot and story context popup functionality on this site.]</font>';
+     echo '</div>';
 
    }
 
