@@ -21,7 +21,7 @@ Please click on the graphs and quotes to see full stories (requires that <b>popu
 
 <br /><br />
 
-<A HREF="javascript:popUpFull('http://www.binarybottle.com')">Arno Klein</a> initially developed Quotes over Time as a purely academic endeavor (all sources are cited). 
+<A HREF="javascript:popUpFull('https://binarybottle.com')">Arno Klein</a> initially developed Quotes over Time as a purely academic endeavor (all sources are cited). 
 As it has garnered interest, we felt that it could serve as a generally useful resource, particularly for news organizations, policy analysts, and media analysts.
 
 <br /><br />
@@ -55,7 +55,7 @@ with
 <ul>
   Pronominal coreferencing (e.g., attributing "she said" to the appropriate individual) is performed with 
 
-<A HREF="javascript:popUpFull('http://opennlp.sourceforge.net/')">opennlp</a>. 
+<!--A HREF="javascript:popUpFull('http://opennlp.sourceforge.net/')"-->opennlp<!--/a-->. 
 
 a Java suite of programs for natural language processing.
 </ul>
@@ -66,18 +66,16 @@ a Java suite of programs for natural language processing.
 <br />																								   
 The larger graphs are created in 
 
-<A HREF="javascript:popUpFull('http://www.aditus.nu/jpgraph/')">JPGraph</a>, 
-based on PHP's GD library, and the smaller graphs are created with a PHP implementation of Tufte's 
+<!--A HREF="javascript:popUpFull('http://www.aditus.nu/jpgraph/')"-->JPGraph<!--/a-->, 
+based on PHP's GD library, and the smaller graphs are created with a PHP implementation of Tufte's Sparklines.
 
-<A HREF="javascript:popUpFull('http://sparkline.org')">Sparklines</a>
-
-.
+<!--A HREF="javascript:popUpFull('http://sparkline.org')"-->Sparklines<!--/a-->
 </ul>
 
 <br />
 <ul>
 <div class="credits">Concept, programming, and design: 
-<A HREF="javascript:popUpFull('http://www.binarybottle.com')">Arno Klein</a><br />
+<A HREF="javascript:popUpFull('https://binarybottle.com')">Arno Klein</a><br />
 Thanks to Jamie Smith for partnering in the conceptual development,
 and for SQL programming.
 </div>

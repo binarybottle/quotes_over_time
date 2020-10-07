@@ -1,5 +1,5 @@
 <?php
-include_once("shared/db.php");
+include_once("../db/qovert_db.php");
 include_once("shared/header.php");
 include_once("shared/banner.html");
 //
@@ -55,15 +55,17 @@ include_once("shared/banner.html");
    $topic_num_new = $_POST['topic_num_new'];
    if (empty($topic_num_new)) { 
       $SQL = 'SELECT topic_num_new FROM temp';
-      $result_stored = mysql_query($SQL) or die (mysql_error());                                                                       
-      $topic_num_new = mysql_fetch_row($result_stored);      
+      $result_stored = mysqli_query($link,$SQL) or die (mysql_error());                                                                       
+      $topic_num_new = mysqli_fetch_row($result_stored);      
       $topic_num_new = $topic_num_new[0];
 // Store topic number
    } else {
       $SQL = "UPDATE temp SET topic_num_new=$topic_num_new";
-      mysql_query($SQL) or die (mysql_error());                                                                       
+      mysqli_query($link,$SQL) or die (mysql_error()); 
    }
    $topic_num = $topic_num_new;
+
+print('HHH'.$SQL);
 
 //----------------------------------
 // Access information on given topic
@@ -72,9 +74,9 @@ include_once("shared/banner.html");
             FROM topics_view
             WHERE topicID = $topic_num ";
 
-   $ans_topic = @ mysql_query ($SQL)
+   $ans_topic = @ mysqli_query($link,$SQL)
                   or die ('Query ' . $SQL . ' failed: ' . mysql_error ());
-   $row_topic  = mysql_fetch_array($ans_topic);
+   $row_topic  = mysqli_fetch_array($ans_topic);
 
    $first_timestamp     = $row_topic[first_timestamp];
    $numdays             = $row_topic[numdays];
@@ -135,8 +137,8 @@ include_once("shared/banner.html");
 
 // Populate dropdown lists (all topics)
    $SQL = "SELECT topicID, topic FROM topics_view WHERE numdays>1 ORDER BY topic";
-   $ans_topics = mysql_query($SQL) or die (mysql_error());                                                                       
-   while($row = mysql_fetch_array($ans_topics)) {
+   $ans_topics = mysqli_query($link,$SQL) or die (mysql_error());                                                                       
+   while($row = mysqli_fetch_array($ans_topics)) {
        if ($row[topicID]==$topic_num) {
                 $selected = 'selected="yes"';  
        } else { $selected = '';  
@@ -214,9 +216,9 @@ include_once("shared/banner.html");
                    FROM (SELECT * FROM topics_view WHERE topicID='.$topic_num.') topics2
                    INNER JOIN names ON names.personID = topics2.personID'.$iperson;
 
-         $ans_name = @ mysql_query ($SQL)
+         $ans_name = @ mysqli_query($link,$SQL)
                        or die ('Query ' . $SQL . ' failed: ' . mysql_error ());
-         $row_names = mysql_fetch_array($ans_name);
+         $row_names = mysqli_fetch_array($ans_name);
             
          $name='';
          if ($row_names[2]!='0') {
@@ -256,14 +258,14 @@ include_once("shared/banner.html");
                    OR quotes.personID=$personID3
                    OR quotes.personID=$personID4
                    OR quotes.personID=$personID5";
-      $result = @ mysql_query ($SQL)
+      $result = @ mysqli_query($link,$SQL)
                 or die ('Query ' . $SQL . ' failed: ' . mysql_error ());
 
    //``````````````````````````````````````````````````````````````````````````````
    // Store quotes prior to display
    //``````````````````````````````````````````````````````````````````````````````
       $Q = array();
-      while($row = mysql_fetch_array($result)) {
+      while($row = mysqli_fetch_array($result)) {
 
          if (strlen($row[quote])>0) {
             for ($irow=1; $irow<=$npeople; $irow+=1) {
