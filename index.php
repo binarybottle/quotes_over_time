@@ -54,8 +54,13 @@ include_once("shared/banner.html");
 // Access stored topic number if changing date range
    $topic_num_new = $_POST['topic_num_new'];
    if (empty($topic_num_new)) { 
-      $SQL = 'SELECT topic_num_new FROM temp';
-      $result_stored = mysqli_query($link,$SQL) or die (mysql_error());                                                                       
+      $sql = 'SELECT topic_num_new FROM temp';
+
+// PHP UPGRADE BREAKS THE FOLLOWING: 
+print('<br><br><br><br><br><br><br><br><br><br><br><br>PHP UPGRADE BREAKS THE FOLLOWING: mysqli_query'); 
+      $result_stored = mysqli_query($link,$sql) or die (mysql_error());
+print('<br><br><br><br><br><br><br><br><br><br><br><br>AFTER mysqli_query'); 
+
       $topic_num_new = mysqli_fetch_row($result_stored);      
       $topic_num_new = $topic_num_new[0];
 // Store topic number
@@ -65,17 +70,13 @@ include_once("shared/banner.html");
    }
    $topic_num = $topic_num_new;
 
-print('HHH'.$SQL);
-
 //----------------------------------
 // Access information on given topic
 //----------------------------------
    $SQL = " SELECT *
             FROM topics_view
             WHERE topicID = $topic_num ";
-
-   $ans_topic = @ mysqli_query($link,$SQL)
-                  or die ('Query ' . $SQL . ' failed: ' . mysql_error ());
+   $ans_topic = mysqli_query($link,$SQL) or die ('Query ' . $SQL . ' failed: ' . mysql_error ());
    $row_topic  = mysqli_fetch_array($ans_topic);
 
    $first_timestamp     = $row_topic[first_timestamp];
@@ -122,7 +123,6 @@ print('HHH'.$SQL);
 //------------------------
 // Start & stop timestamps
 //------------------------
-
    $start_time = 86400 * ( floor(($first_timestamp+72000)/86400) - 5/6 + $start_day );
    $stop_time  = 86400 * ( floor(($first_timestamp+72000)/86400) - 5/6 + $stop_day  ) - 1;
    $timeslot   = ($stop_time-$start_time)/($ntimeslots);
@@ -286,13 +286,6 @@ print('HHH'.$SQL);
 			//          $quote = trim(preg_replace('#(,)[\s]?$#','',$quote));
 
             if (strlen($quote)>0) {
-			  /*
-               $quote_string = '<a href="javascript:popUp(\'quote_popup.php?storyID='.$row[storyID].
-                               '&quoteID='.$row[quoteID].'&iperson='.$iperson.'&date='.$date.'\')">
-                               <span class="quote"><span class="color'.$iperson.'">&#8220;'
-                               .substr($quote,0,$quote_length).$ellipsis.
-                               '&#8221;</span></span></a>';
-			  */
                $quote_string = '<a href="quote_popup.php?storyID='.$row[storyID].
                                '&quoteID='.$row[quoteID].'&iperson='.$iperson.'&date='.$date.
                                '" onClick="return popup(this)"><span class="quote"><span class="color'.$iperson.'">&#8220;'
